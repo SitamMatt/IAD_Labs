@@ -1,0 +1,72 @@
+
+import numpy as np
+import plotly.graph_objects as go
+import statistics
+
+
+# Activation function - Sigmoid function
+def sigmoid(t):
+    return 1 / (1 + np.exp(-t))
+
+
+# Derivative of sigmoid
+def sigmoid_derivative(p):
+    return p * (1 - p)
+
+
+# Class definition
+class NeuralNetwork:
+    def __init__(self, x, y, z, step, momentum, bias):
+        self.input = x
+        self.y = y
+        self.weights1 = np.random.rand(self.input.shape[1], z)
+        self.weights2 = np.random.rand(z, self.y.shape[1])
+        self.output = np.zeros(y.shape)
+        self.step = step
+        self.momentum = momentum
+        self.bias = bias
+        self.d_w1_tmp = 0
+        self.d_w2_tmp = 0
+        self.layer1 = 0
+        self.training_samples = self.input.shape[0]
+
+    def feedforward(self):
+        self.layer1 = sigmoid(np.dot(self.input, self.weights1)+self.bias)
+        self.layer2 = sigmoid(np.dot(self.layer1, self.weights2)+self.bias)
+        return self.layer2
+
+    def backprop(self):
+        d_weights2 = np.dot(self.layer1.T, 2 * (self.y - self.output) * sigmoid_derivative(self.output))
+        d_weights1 = np.dot(self.input.T, np.dot(2 * (self.y - self.output) * sigmoid_derivative(self.output),
+                                                 self.weights2.T) * sigmoid_derivative(self.layer1))
+
+        self.weights1 += (self.step * d_weights1 + self.momentum * self.d_w1_tmp)
+        self.weights2 += (self.step * d_weights2 + self.momentum * self.d_w2_tmp)
+
+        self.d_w1_tmp = d_weights1
+        self.d_w2_tmp = d_weights2
+
+    def train(self, x, y):
+        self.output = self.feedforward()
+        self.backprop()
+
+    def error(self):
+        return (1/self.training_samples*2)*np.mean(np.square(self.y - self.feedforward()))
+
+    def reset(self, z):
+        self.weights1 = np.random.rand(self.input.shape[1], z)
+        self.weights2 = np.random.rand(z, self.y.shape[1])
+
+    def verify(self, w , v):
+        layer1 = sigmoid(np.dot(w, self.weights1) + self.bias)
+        layer2 = sigmoid(np.dot(layer1, self.weights2) + self.bias)
+        return (1 / w.shape[0] * 2) * np.mean(np.square(v - layer2))
+
+    def verify_percentage(self, w, v):
+        layer1 = sigmoid(np.dot(w, self.weights1) + self.bias)
+        layer2 = sigmoid(np.dot(layer1, self.weights2) + self.bias)
+        guess_temp = np.empty((0, 1), int)
+        for sample in layer2:
+            guess_temp = np.append(guess_temp, np.array([[np.argmax(sample)+1]]), axis=0)
+        print(guess_temp)
+        return (np.sum(guess_temp == v)/v.shape[0])
