@@ -1,0 +1,9 @@
+1 avg_train_error= 4.42003 div_train_error= 1.63236 avg_test_error= 3.85455 div_test_error= 1.63236
+6 avg_train_error= 1.28325 div_train_error= 0.51425 avg_test_error= 0.93766 div_test_error= 0.51425
+11 avg_train_error= 0.61338 div_train_error= 0.31211 avg_test_error= 0.46526 div_test_error= 0.31211
+16 avg_train_error= 0.39067 div_train_error= 0.1077 avg_test_error= 0.35736 div_test_error= 0.1077
+21 avg_train_error= 0.33333 div_train_error= 0.06953 avg_test_error= 0.3263 div_test_error= 0.06953
+26 avg_train_error= 0.26046 div_train_error= 0.08971 avg_test_error= 0.28085 div_test_error= 0.08971
+31 avg_train_error= 0.19875 div_train_error= 0.04032 avg_test_error= 0.2504 div_test_error= 0.04032
+36 avg_train_error= 0.1774 div_train_error= 0.02808 avg_test_error= 0.24847 div_test_error= 0.02808
+41 avg_train_error= 0.16711 div_train_error= 0.02667 avg_test_error= 0.24559 div_test_error= 0.02667

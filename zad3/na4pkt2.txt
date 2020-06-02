@@ -1,0 +1,9 @@
+1 avg_train_very= 33.33333 div_train_very= 0.0 avg_test_very= 33.33333 div_test_very= 0.0
+6 avg_train_very= 90.93333 div_train_very= 3.29129 avg_test_very= 92.17204 div_test_very= 3.29129
+11 avg_train_very= 95.58889 div_train_very= 3.00393 avg_test_very= 95.36559 div_test_very= 3.00393
+16 avg_train_very= 96.96667 div_train_very= 1.72029 avg_test_very= 96.27957 div_test_very= 1.72029
+21 avg_train_very= 96.77778 div_train_very= 1.81557 avg_test_very= 95.69892 div_test_very= 1.81557
+26 avg_train_very= 96.64444 div_train_very= 1.56331 avg_test_very= 95.69892 div_test_very= 1.56331
+31 avg_train_very= 96.6 div_train_very= 1.3409 avg_test_very= 95.46237 div_test_very= 1.3409
+36 avg_train_very= 96.01111 div_train_very= 1.98199 avg_test_very= 94.70968 div_test_very= 1.98199
+41 avg_train_very= 96.11111 div_train_very= 1.84926 avg_test_very= 94.91398 div_test_very= 1.84926
